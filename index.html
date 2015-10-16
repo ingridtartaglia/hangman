@@ -10,14 +10,34 @@
         <div class="row">
             <h1>Hangman</h1>
             <div class="col-xs-12">
-                
+                <div class="img-placeholder">
+                    <img ng-src="{{states[currentState]}}">
+                </div>
             </div>
-
-
-
+        </div>
+        <div class="row row-container">
+            <div class="col-xs-12">
+                <span class="letter-spacing text-uppercase" ng-repeat="letter in guessedLetters track by $index">{{letter}}</span>
+            </div>
+        </div>
+        <div class="row row-container">
+            <div class="col-xs-12">
+                <div class="letter-btn-placeholder">
+                    <button class="text-uppercase btn btn-primary btn-letter" ng-repeat="letter in letters" ng-click="selectLetter(letter)"
+                            ng-disabled="selectedLetters.indexOf(letter) > -1">{{letter}}</button>
+                </div>
+            </div>
+        </div>
+        <div class="row row-container">
+            <div class="col-xs-12">
+                <div class="btn-new-placeholder">
+                    <button class="btn btn-success" ng-click="startNewGame()" ng-show="gameEnded">New Game</button>
+                </div>
+            </div>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="app.js"></script>
 </body>
